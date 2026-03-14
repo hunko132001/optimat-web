@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Optimat — Optimización de Procesos Digitales con IA</title>
+<meta name="description" content="Diseñamos e implementamos sistemas de inteligencia artificial que optimizan, automatizan y escalan los procesos digitales de tu empresa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#f7f5f0;--black:#0d0d0d;--ink:#1c1c1c;--mid:#4a4a4a;--muted:#9a9a9a;--border:#d8d4cc;--border-light:#e8e4dc;--white:#ffffff;--dark:#111110;--dark-s:#1a1918;--db:rgba(247,245,240,0.08);}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;background:rgba(247,245,240,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.ni{max-width:1240px;margin:0 auto;height:100%;padding:0 48px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.logo{display:flex;align-items:center;gap:13px;text-decoration:none;flex-shrink:0;}
+.lm{width:28px;height:28px;}
+.ln{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--black);line-height:1;}
+.ls{font-size:7px;font-weight:400;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);display:block;margin-top:2px;}
+.nl{display:flex;align-items:center;gap:2px;list-style:none;}
+.nl a{font-size:10.5px;font-weight:400;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);text-decoration:none;padding:8px 13px;transition:color 0.2s;}
+.nl a:hover{color:var(--black);}
+.nr{display:flex;align-items:center;gap:16px;}
+.nb{background:var(--black);color:var(--cream);border:none;padding:10px 24px;font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;text-decoration:none;white-space:nowrap;transition:opacity 0.2s;}
+.nb:hover{opacity:0.8;}
+.nt{font-size:11px;font-weight:300;color:var(--muted);white-space:nowrap;}
+#inicio{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:68px 0 0;background:var(--dark);position:relative;overflow:hidden;}
+.hbg{position:absolute;inset:0;background:linear-gradient(135deg,#0d0d0d 0%,#1a1918 60%,#111110 100%);}
+.hgr{position:absolute;inset:0;background-image:linear-gradient(rgba(247,245,240,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(247,245,240,0.03) 1px,transparent 1px);background-size:72px 72px;}
+.hgl{position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(247,245,240,0.04) 0%,transparent 70%);pointer-events:none;}
+.hc{position:relative;z-index:2;max-width:1240px;margin:0 auto;width:100%;padding:80px 48px 0;display:grid;grid-template-columns:1fr 460px;gap:72px;align-items:end;}
+.hl{padding-bottom:80px;animation:fadeR 0.9s 0.1s ease both;}
+.hey{display:flex;align-items:center;gap:14px;margin-bottom:44px;}
+.hel{width:28px;height:1px;background:rgba(247,245,240,0.25);}
+.het{font-size:9.5px;font-weight:500;letter-spacing:0.32em;text-transform:uppercase;color:rgba(247,245,240,0.4);}
+.ht{font-family:'Cormorant Garamond',serif;font-size:clamp(50px,6vw,86px);font-weight:300;line-height:1.02;color:var(--cream);margin-bottom:32px;}
+.ht em{font-style:italic;color:rgba(247,245,240,0.5);}
+.hb{font-size:15px;font-weight:300;line-height:1.9;color:rgba(247,245,240,0.45);max-width:400px;margin-bottom:48px;}
+.ha{display:flex;align-items:center;gap:20px;}
+.bl{background:var(--cream);color:var(--black);border:none;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:opacity 0.2s,transform 0.15s;}
+.bl:hover{opacity:0.85;transform:translateY(-1px);}
+.bg{font-size:10.5px;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:rgba(247,245,240,0.4);text-decoration:none;border-bottom:1px solid rgba(247,245,240,0.15);padding-bottom:2px;transition:color 0.2s,border-color 0.2s;}
+.bg:hover{color:var(--cream);border-color:rgba(247,245,240,0.35);}
+.hr{display:flex;flex-direction:column;gap:0;border-left:1px solid var(--db);padding-bottom:80px;animation:fadeL 0.9s 0.15s ease both;}
+.hst{padding:26px 32px;border-bottom:1px solid var(--db);}
+.hst:first-child{border-top:1px solid var(--db);}
+.hstp{display:flex;align-items:baseline;gap:12px;margin-bottom:7px;}
+.hsn{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--cream);line-height:1;}
+.hstag{font-size:8.5px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:rgba(247,245,240,0.28);border:1px solid rgba(247,245,240,0.1);padding:3px 8px;}
+.hsti{font-size:13px;font-weight:500;color:rgba(247,245,240,0.75);margin-bottom:4px;}
+.hsd{font-size:12px;font-weight:300;color:rgba(247,245,240,0.32);line-height:1.6;}
+.hbar{background:var(--dark-s);border-top:1px solid var(--db);position:relative;z-index:2;}
+.hbi{max-width:1240px;margin:0 auto;padding:0 48px;display:flex;align-items:center;animation:fadeUp 0.8s 0.3s ease both;}
+.hbitem{flex:1;padding:20px 0;border-right:1px solid var(--db);padding-right:28px;margin-right:28px;}
+.hbitem:last-child{border-right:none;margin-right:0;padding-right:0;}
+.hbl{font-size:9px;font-weight:500;letter-spacing:0.24em;text-transform:uppercase;color:rgba(247,245,240,0.22);margin-bottom:4px;}
+.hbv{font-size:12px;font-weight:300;color:rgba(247,245,240,0.48);}
+.sw{padding:100px 48px;border-bottom:1px solid var(--border);}
+.sw.dark{background:var(--dark);border-bottom:1px solid var(--db);}
+.sw.white{background:var(--white);}
+.in{max-width:1240px;margin:0 auto;width:100%;}
+.sh{margin-bottom:64px;}
+.se{display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+.sen{font-family:'Cormorant Garamond',serif;font-size:12px;color:var(--muted);}
+.sel{width:24px;height:1px;background:var(--border);}
+.set{font-size:9.5px;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:var(--mid);}
+.st{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.5vw,50px);font-weight:300;color:var(--black);line-height:1.08;max-width:620px;}
+.st em{font-style:italic;}
+.sb{font-size:15px;font-weight:300;color:var(--mid);line-height:1.85;max-width:500px;margin-top:16px;}
+.dark .sel{background:var(--db);}
+.dark .set{color:rgba(247,245,240,0.3);}
+.dark .sen{color:rgba(247,245,240,0.18);}
+.dark .st{color:var(--cream);}
+.dark .sb{color:rgba(247,245,240,0.4);}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);}
+.svc{background:var(--cream);padding:48px 44px;transition:background 0.25s;cursor:default;}
+.svc:hover{background:var(--white);}
+.svn{font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:0.2em;color:var(--muted);margin-bottom:26px;}
+.svi{width:44px;height:44px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:22px;transition:border-color 0.25s;}
+.svc:hover .svi{border-color:var(--black);}
+.svi svg{width:19px;height:19px;stroke:var(--ink);fill:none;stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round;}
+.svt{font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:400;color:var(--black);line-height:1.1;margin-bottom:13px;}
+.svd{font-size:13.5px;font-weight:300;color:var(--mid);line-height:1.8;margin-bottom:26px;}
+.svl{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.svl li{font-size:12.5px;font-weight:300;color:var(--mid);display:flex;gap:10px;line-height:1.5;}
+.svl li::before{content:'—';color:var(--border);flex-shrink:0;}
+.sva{display:inline-flex;align-items:center;gap:8px;margin-top:28px;font-size:10px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:2px;transition:border-color 0.2s;}
+.sva:hover{border-color:var(--black);}
+.ig{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.ic{background:var(--white);padding:36px 32px;transition:background 0.2s;}
+.ic:hover{background:var(--cream);}
+.ici{font-size:24px;margin-bottom:14px;}
+.ict{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--black);margin-bottom:9px;}
+.icd{font-size:12.5px;font-weight:300;color:var(--mid);line-height:1.7;}
+.pg{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--db);}
+.paso{padding:44px 32px;border-right:1px solid var(--db);}
+.paso:last-child{border-right:none;}
+.pn{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:rgba(247,245,240,0.05);line-height:1;margin-bottom:18px;}
+.pt{font-size:13px;font-weight:500;color:var(--cream);margin-bottom:9px;}
+.pd{font-size:12px;font-weight:300;color:rgba(247,245,240,0.36);line-height:1.75;}
+.ptag{display:inline-block;margin-top:18px;font-size:9px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(247,245,240,0.22);border:1px solid rgba(247,245,240,0.08);padding:4px 10px;}
+.rg{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:56px;}
+.rc{background:var(--cream);padding:36px 32px;text-align:center;transition:background 0.2s;}
+.rc:hover{background:var(--white);}
+.rn{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:var(--black);line-height:1;margin-bottom:7px;}
+.rl{font-size:11px;font-weight:500;color:var(--ink);letter-spacing:0.05em;margin-bottom:5px;}
+.rd{font-size:11.5px;font-weight:300;color:var(--muted);line-height:1.5;}
+.tg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;}
+.tc{background:var(--white);border:1px solid var(--border-light);padding:34px 30px;}
+.tq{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;font-style:italic;color:var(--ink);line-height:1.65;margin-bottom:24px;}
+.ta{display:flex;align-items:center;gap:13px;}
+.tav{width:36px;height:36px;background:var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--mid);}
+.tan{font-size:12.5px;font-weight:500;color:var(--ink);}
+.tar{font-size:11px;font-weight:300;color:var(--muted);}
+.abg{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.avals{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:44px;}
+.vc{background:var(--white);padding:30px 26px;}
+.vt{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;color:var(--black);margin-bottom:9px;}
+.vd{font-size:12.5px;font-weight:300;color:var(--mid);line-height:1.7;}
+.amis{margin-top:44px;}
+.mi{padding:22px 0;border-bottom:1px solid var(--border);}
+.mi:first-child{border-top:1px solid var(--border);}
+.mil{font-size:9.5px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);margin-bottom:9px;}
+.mit{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:300;color:var(--ink);line-height:1.5;font-style:italic;}
+.ateam{margin-top:44px;}
+.ti{display:flex;align-items:center;gap:18px;padding:18px 0;border-bottom:1px solid var(--border);}
+.ti:first-child{border-top:1px solid var(--border);}
+.tav2{width:46px;height:46px;background:var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--mid);flex-shrink:0;}
+.tname{font-size:14px;font-weight:500;color:var(--ink);}
+.trole{font-size:11.5px;font-weight:300;color:var(--muted);}
+.fl{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--border);}
+.fi{border-bottom:1px solid var(--border);}
+.fq{width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 0;background:none;border:none;cursor:pointer;text-align:left;}
+.fqt{font-size:14.5px;font-weight:400;color:var(--ink);line-height:1.4;}
+.fic{width:28px;height:28px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform 0.25s;}
+.fic svg{width:12px;height:12px;stroke:var(--mid);fill:none;stroke-width:1.5;}
+.fi.open .fic{transform:rotate(45deg);}
+.fa{display:none;padding:0 0 22px;font-size:13.5px;font-weight:300;color:var(--mid);line-height:1.85;max-width:720px;}
+.fi.open .fa{display:block;}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:start;}
+.cil{display:flex;flex-direction:column;margin-top:44px;}
+.ci2{padding:18px 0;border-bottom:1px solid var(--border);}
+.ci2:first-child{border-top:1px solid var(--border);}
+.cil2{font-size:9.5px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+.civ{font-size:14px;font-weight:300;color:var(--ink);}
+.civ a{color:var(--ink);text-decoration:none;}
+.fc{background:var(--white);border:1px solid var(--border-light);padding:44px 40px;}
+.fh{margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--border-light);}
+.ftt{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--black);margin-bottom:5px;}
+.fsb{font-size:11.5px;font-weight:300;color:var(--muted);letter-spacing:0.08em;}
+.fg2{margin-bottom:22px;}
+label{display:block;font-size:9.5px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+input,select,textarea{width:100%;background:var(--cream);border:1px solid var(--border-light);padding:12px 14px;color:var(--ink);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:300;transition:border-color 0.2s,background 0.2s;outline:none;-webkit-appearance:none;border-radius:0;}
+input::placeholder,textarea::placeholder{color:var(--border);}
+input:focus,select:focus,textarea:focus{border-color:var(--black);background:var(--white);}
+select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' fill='%239a9a9a' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-color:var(--cream);padding-right:32px;}
+select:focus{background-color:var(--white);}
+select option{background:var(--white);color:var(--ink);}
+textarea{resize:none;height:80px;line-height:1.7;}
+.fr2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.sa{margin-top:26px;padding-top:22px;border-top:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between;gap:14px;}
+.sb2{background:var(--black);color:var(--cream);border:none;padding:14px 32px;font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;transition:opacity 0.2s,transform 0.15s;white-space:nowrap;}
+.sb2:hover{opacity:0.8;transform:translateY(-1px);}
+.sb2.loading{opacity:0.4;pointer-events:none;}
+.prv{font-size:11px;font-weight:300;color:var(--muted);line-height:1.6;text-align:right;}
+.ss{display:none;}
+.ss.visible{display:block;}
+.sck{width:48px;height:48px;border:1px solid var(--black);display:flex;align-items:center;justify-content:center;margin-bottom:22px;}
+.sck svg{width:18px;height:18px;stroke:var(--black);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.stt{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:var(--black);line-height:1.1;margin-bottom:14px;}
+.sbd{font-size:14px;font-weight:300;color:var(--mid);line-height:1.85;}
+footer{background:var(--dark);border-top:1px solid var(--db);}
+.ft{max-width:1240px;margin:0 auto;padding:60px 48px 44px;display:grid;grid-template-columns:220px 1fr 1fr 1fr;gap:44px;}
+.ftg{font-size:12.5px;font-weight:300;color:rgba(247,245,240,0.3);line-height:1.7;margin-top:18px;max-width:190px;}
+.fct{font-size:9.5px;font-weight:500;letter-spacing:0.24em;text-transform:uppercase;color:rgba(247,245,240,0.28);margin-bottom:18px;}
+.flinks{list-style:none;display:flex;flex-direction:column;gap:11px;}
+.flinks a{font-size:13px;font-weight:300;color:rgba(247,245,240,0.42);text-decoration:none;transition:color 0.2s;}
+.flinks a:hover{color:var(--cream);}
+.fb{max-width:1240px;margin:0 auto;padding:18px 48px;border-top:1px solid var(--db);display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.fcp{font-size:11px;font-weight:300;color:rgba(247,245,240,0.22);}
+.flg{display:flex;gap:22px;}
+.flg a{font-size:11px;font-weight:300;color:rgba(247,245,240,0.22);text-decoration:none;transition:color 0.2s;}
+.flg a:hover{color:rgba(247,245,240,0.5);}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.75s ease,transform 0.75s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@keyframes fadeR{from{opacity:0;transform:translateX(-24px);}to{opacity:1;transform:translateX(0);}}
+@keyframes fadeL{from{opacity:0;transform:translateX(24px);}to{opacity:1;transform:translateX(0);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+@media(max-width:1024px){.hc{grid-template-columns:1fr;gap:44px;}.hr{border-left:none;border-top:1px solid var(--db);display:grid;grid-template-columns:1fr 1fr 1fr;}.hst{border-right:1px solid var(--db);border-bottom:none;}.hst:last-child{border-right:none;}.abg,.cg{grid-template-columns:1fr;gap:48px;}.tg{grid-template-columns:1fr 1fr;}.ft{grid-template-columns:1fr 1fr;}.fb-brand{grid-column:1/-1;}}
+@media(max-width:768px){.nl,.nt{display:none;}.ni{padding:0 24px;}.sw,.sw.dark,.sw.white{padding:80px 24px;}.hc{padding:60px 24px 0;}.hbi{padding:0 24px;}.sg,.ig,.pg,.rg{grid-template-columns:1fr;}.avals{grid-template-columns:1fr;}.tg{grid-template-columns:1fr;}.fr2{grid-template-columns:1fr;gap:0;}.sa{flex-direction:column;align-items:flex-start;}.prv{text-align:left;}.ft{grid-template-columns:1fr;padding:36px 24px 28px;}.fb{padding:14px 24px;flex-direction:column;gap:10px;text-align:center;}.fc{padding:24px 18px;}.hr{grid-template-columns:1fr;}.pg{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="ni">
+    <a href="#inicio" class="logo">
+      <svg class="lm" viewBox="0 0 28 28" fill="none"><rect x="0.4" y="0.4" width="27.2" height="27.2" stroke="#0d0d0d" stroke-width="0.6"/><path d="M14 3.5L22 8.5L22 19.5L14 24.5L6 19.5L6 8.5Z" stroke="#0d0d0d" stroke-width="0.6" fill="none"/><circle cx="14" cy="14" r="1.2" fill="#0d0d0d"/><line x1="14" y1="14" x2="14" y2="7.5" stroke="#0d0d0d" stroke-width="0.6"/><polyline points="11.5,10 14,7.5 16.5,10" stroke="#0d0d0d" stroke-width="0.6" fill="none" stroke-linejoin="round"/></svg>
+      <div><span class="ln">Optimat</span><span class="ls">Intelligence · Growth · Precision</span></div>
+    </a>
+    <ul class="nl">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#industrias">Industrias</a></li>
+      <li><a href="#proceso">Metodología</a></li>
+      <li><a href="#resultados">Resultados</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="nr">
+      <span class="nt">operacion@optimat.net</span>
+      <a href="#contacto" class="nb">Diagnóstico gratuito</a>
+    </div>
+  </div>
+</nav>
+
+<section id="inicio">
+  <div class="hbg"></div><div class="hgr"></div><div class="hgl"></div>
+  <div class="hc">
+    <div class="hl">
+      <div class="hey"><div class="hel"></div><span class="het">Optimización Digital con Inteligencia Artificial</span></div>
+      <h1 class="ht">Procesos más<br>inteligentes.<br><em>Resultados<br>medibles.</em></h1>
+      <p class="hb">Diseñamos e implementamos sistemas de IA que eliminan la fricción operativa, automatizan tareas críticas y generan ventajas competitivas reales — sin aumentar headcount.</p>
+      <div class="ha">
+        <a href="#contacto" class="bl">Solicitar diagnóstico gratuito</a>
+        <a href="#servicios" class="bg">Ver servicios</a>
+      </div>
+    </div>
+    <div class="hr">
+      <div class="hst"><div class="hstp"><span class="hsn">×3</span><span class="hstag">Rendimiento</span></div><div class="hsti">ROI promedio en 90 días</div><div class="hsd">Incremento documentado en empresas de servicios B2B tras implementar automatización.</div></div>
+      <div class="hst"><div class="hstp"><span class="hsn">−60%</span><span class="hstag">Eficiencia</span></div><div class="hsti">Reducción en carga operativa</div><div class="hsd">Promedio de tiempo recuperado al automatizar procesos administrativos repetitivos.</div></div>
+      <div class="hst"><div class="hstp"><span class="hsn">$0</span><span class="hstag">Sin riesgo</span></div><div class="hsti">Diagnóstico inicial sin costo</div><div class="hsd">Sin contrato, sin compromiso. Solo un análisis honesto de tu operación.</div></div>
+    </div>
+  </div>
+  <div class="hbar">
+    <div class="hbi">
+      <div class="hbitem"><div class="hbl">Tecnología</div><div class="hbv">n8n · Claude AI · OpenAI · Make · Zapier</div></div>
+      <div class="hbitem"><div class="hbl">Integraciones</div><div class="hbv">CRM · ERP · Gmail · WhatsApp · Google Sheets</div></div>
+      <div class="hbitem"><div class="hbl">Tiempo de implementación</div><div class="hbv">2 a 6 semanas según complejidad</div></div>
+      <div class="hbitem"><div class="hbl">Soporte</div><div class="hbv">Monitoreo continuo · Optimización iterativa</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="servicios" class="sw">
+  <div class="in">
+    <div class="sh reveal"><div class="se"><span class="sen">01</span><div class="sel"></div><span class="set">Servicios</span></div><h2 class="st">Lo que <em>construimos</em><br>para tu empresa</h2><p class="sb">Cada implementación es diseñada a medida. No vendemos software genérico — construimos sistemas que resuelven el problema específico de tu operación y tienen impacto directo en tus ingresos y costos.</p></div>
+    <div class="sg">
+      <div class="svc reveal"><div class="svn">01 / 06</div><div class="svi"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><h3 class="svt">Automatización<br>de Ventas y Leads</h3><p class="svd">Sistemas que califican, priorizan y responden a prospectos en segundos — sin intervención humana para los contactos que no califican.</p><ul class="svl"><li>Calificación automática de leads con IA (score 1–10)</li><li>Seguimiento personalizado por email y WhatsApp</li><li>CRM ligero conectado a tu flujo de ventas</li><li>Alertas inteligentes al equipo comercial</li></ul><a href="#contacto" class="sva">Solicitar diagnóstico →</a></div>
+      <div class="svc reveal"><div class="svn">02 / 06</div><div class="svi"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><h3 class="svt">Automatización<br>Administrativa</h3><p class="svd">Eliminamos el trabajo manual repetitivo en finanzas, operaciones y administración. Tu equipo enfocado en lo que genera valor real.</p><ul class="svl"><li>Extracción y procesamiento automático de facturas</li><li>Generación de reportes ejecutivos con IA</li><li>Conciliación de pagos y alertas de anomalías</li><li>Integración con sistemas contables existentes</li></ul><a href="#contacto" class="sva">Solicitar diagnóstico →</a></div>
+      <div class="svc reveal"><div class="svn">03 / 06</div><div class="svi"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h3 class="svt">Optimización<br>de Procesos Operativos</h3><p class="svd">Mapeamos tu operación, identificamos cuellos de botella y diseñamos flujos automatizados que escalan sin incrementar headcount.</p><ul class="svl"><li>Diagnóstico y mapeo de procesos críticos</li><li>Diseño de flujos de trabajo automatizados</li><li>Integración entre herramientas y plataformas</li><li>Monitoreo y optimización iterativa continua</li></ul><a href="#contacto" class="sva">Solicitar diagnóstico →</a></div>
+      <div class="svc reveal"><div class="svn">04 / 06</div><div class="svi"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div><h3 class="svt">Inteligencia<br>de Datos</h3><p class="svd">Convertimos tus datos operativos en decisiones. Dashboards ejecutivos con IA que detectan tendencias, anomalías y oportunidades.</p><ul class="svl"><li>Conexión a múltiples fuentes de datos en tiempo real</li><li>Reportes ejecutivos generados automáticamente</li><li>Alertas proactivas ante métricas fuera de rango</li><li>Análisis predictivo de demanda e inventario</li></ul><a href="#contacto" class="sva">Solicitar diagnóstico →</a></div>
+
+      <div class="svc reveal" style="position:relative;overflow:hidden;">
+        <div style="position:absolute;top:16px;right:16px;font-size:8.5px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;background:var(--black);color:var(--cream);padding:4px 10px;">Alto valor</div>
+        <div class="svn">05 / 06</div>
+        <div class="svi"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        <h3 class="svt">Revenue Operations<br>con IA</h3>
+        <p class="svd">Unificamos marketing, ventas y customer success en un solo sistema inteligente que maximiza los ingresos en cada etapa del ciclo de vida del cliente.</p>
+        <ul class="svl">
+          <li>Pipeline de ingresos unificado con visibilidad en tiempo real</li>
+          <li>Scoring predictivo de probabilidad de cierre por oportunidad</li>
+          <li>Automatización de upsell y cross-sell basada en comportamiento</li>
+          <li>Atribución precisa de ingresos por canal y campaña</li>
+          <li>Forecasting de ventas con modelos de IA actualizados semanalmente</li>
+        </ul>
+        <a href="#contacto" class="sva">Solicitar diagnóstico →</a>
+      </div>
+
+      <div class="svc reveal" style="position:relative;overflow:hidden;">
+        <div style="position:absolute;top:16px;right:16px;font-size:8.5px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;background:var(--black);color:var(--cream);padding:4px 10px;">Alto valor</div>
+        <div class="svn">06 / 06</div>
+        <div class="svi"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3 class="svt">AI Agent de Atención<br>al Cliente 24/7</h3>
+        <p class="svd">Un agente de IA entrenado en el conocimiento profundo de tu empresa que atiende, resuelve y escala — sin horarios, sin tiempos de espera, sin costo incremental por volumen.</p>
+        <ul class="svl">
+          <li>Entrenado con tus productos, precios, políticas y casos frecuentes</li>
+          <li>Responde por WhatsApp, email, web chat y redes sociales simultáneamente</li>
+          <li>Resuelve hasta el 80% de consultas sin intervención humana</li>
+          <li>Escala automáticamente a un agente humano cuando el caso lo requiere</li>
+          <li>Aprende y mejora con cada interacción — nunca deja de optimizarse</li>
+        </ul>
+        <a href="#contacto" class="sva">Solicitar diagnóstico →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="industrias" class="sw white">
+  <div class="in">
+    <div class="sh reveal"><div class="se"><span class="sen">02</span><div class="sel"></div><span class="set">Industrias</span></div><h2 class="st"><em>¿En qué industrias</em><br>trabajamos?</h2><p class="sb">Tenemos experiencia implementando sistemas de IA en múltiples sectores. Si tu industria no está aquí, escríbenos — casi siempre hay oportunidades.</p></div>
+    <div class="ig reveal">
+      <div class="ic"><div class="ici">🏠</div><h4 class="ict">Inmobiliaria</h4><p class="icd">Calificación de prospectos, seguimiento automatizado de leads y reportes de pipeline para equipos de ventas inmobiliarias.</p></div>
+      <div class="ic"><div class="ici">⚕️</div><h4 class="ict">Salud y Clínicas</h4><p class="icd">Confirmación de citas, gestión de expedientes y automatización de recordatorios para reducir ausencias y optimizar agenda.</p></div>
+      <div class="ic"><div class="ici">🎓</div><h4 class="ict">Educación</h4><p class="icd">Captación y seguimiento de alumnos potenciales, reportes académicos automatizados e integración con plataformas LMS.</p></div>
+      <div class="ic"><div class="ici">💼</div><h4 class="ict">Consultoría</h4><p class="icd">Gestión de propuestas, seguimiento de proyectos, facturación automatizada y dashboards de rentabilidad por cliente.</p></div>
+      <div class="ic"><div class="ici">🛒</div><h4 class="ict">Retail y E-commerce</h4><p class="icd">Gestión de inventario inteligente, análisis de demanda, automatización de atención al cliente y reportes de ventas.</p></div>
+      <div class="ic"><div class="ici">🏭</div><h4 class="ict">Manufactura</h4><p class="icd">Control de producción, alertas de mantenimiento preventivo, gestión de proveedores y trazabilidad automatizada.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="proceso" class="sw dark">
+  <div class="in">
+    <div class="sh reveal"><div class="se"><span class="sen">03</span><div class="sel"></div><span class="set">Metodología</span></div><h2 class="st">Cómo <em>trabajamos</em></h2><p class="sb">Un proceso claro, sin sorpresas. Desde el diagnóstico inicial hasta la operación autónoma del sistema en tu empresa.</p></div>
+    <div class="pg reveal">
+      <div class="paso"><div class="pn">01</div><div class="pt">Diagnóstico</div><div class="pd">Analizamos tu operación actual, identificamos los procesos con mayor potencial de automatización y calculamos el ROI esperado antes de escribir una línea de código.</div><span class="ptag">Semana 1</span></div>
+      <div class="paso"><div class="pn">02</div><div class="pt">Diseño</div><div class="pd">Diseñamos la arquitectura del sistema, definimos integraciones y presentamos un plan de implementación con tiempos, entregables y métricas de éxito claros.</div><span class="ptag">Semana 1–2</span></div>
+      <div class="paso"><div class="pn">03</div><div class="pt">Implementación</div><div class="pd">Construimos e integramos el sistema. Probamos cada flujo, capacitamos a tu equipo y ajustamos hasta que funcione perfectamente en producción real.</div><span class="ptag">Semana 2–5</span></div>
+      <div class="paso"><div class="pn">04</div><div class="pt">Optimización</div><div class="pd">Monitoreamos el desempeño mensualmente, analizamos resultados y mejoramos continuamente. Tu sistema evoluciona conforme crece tu empresa.</div><span class="ptag">Continuo</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="resultados" class="sw">
+  <div class="in">
+    <div class="sh reveal"><div class="se"><span class="sen">04</span><div class="sel"></div><span class="set">Resultados</span></div><h2 class="st">Números que <em>importan</em></h2><p class="sb">Resultados documentados de empresas que implementaron sistemas de automatización con Optimat en su primer año de operación.</p></div>
+    <div class="rg reveal">
+      <div class="rc"><div class="rn">×3</div><div class="rl">ROI Promedio</div><div class="rd">En los primeros 90 días de operación</div></div>
+      <div class="rc"><div class="rn">−60%</div><div class="rl">Carga Operativa</div><div class="rd">Reducción en horas de trabajo manual</div></div>
+      <div class="rc"><div class="rn">&lt;10s</div><div class="rl">Tiempo de Respuesta</div><div class="rd">Para calificación y respuesta a leads</div></div>
+      <div class="rc"><div class="rn">+40%</div><div class="rl">Tasa de Conversión</div><div class="rd">Incremento promedio en cierre de ventas</div></div>
+    </div>
+    <div class="tg reveal">
+      <div class="tc"><div class="tq">"Antes perdíamos leads todos los días por no responder a tiempo. Ahora el sistema responde en segundos y nosotros solo hablamos con los que valen la pena."</div><div class="ta"><div class="tav">M</div><div><div class="tan">María G.</div><div class="tar">Directora Comercial · Inmobiliaria</div></div></div></div>
+      <div class="tc"><div class="tq">"Recuperamos 3 horas diarias que el equipo invertía en reportes manuales. Ahora llegan solos cada lunes a las 8am, listos para la junta."</div><div class="ta"><div class="tav">R</div><div><div class="tan">Roberto L.</div><div class="tar">CEO · Consultoría de Operaciones</div></div></div></div>
+      <div class="tc"><div class="tq">"El sistema de calificación de leads nos permitió enfocar al equipo en los prospectos correctos. El cierre subió 40% en el primer trimestre."</div><div class="ta"><div class="tav">A</div><div><div class="tan">Ana P.</div><div class="tar">Directora de Ventas · SaaS B2B</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="nosotros" class="sw white">
+  <div class="in">
+    <div class="abg">
+      <div class="reveal">
+        <div class="se"><span class="sen">05</span><div class="sel"></div><span class="set">Nosotros</span></div>
+        <h2 class="st">Quiénes<br><em>somos</em></h2>
+        <p class="sb">Optimat es una firma especializada en optimización de procesos digitales con inteligencia artificial, fundada en Ciudad de México con el objetivo de hacer accesible la automatización inteligente para empresas de todos los tamaños.</p>
+        <div class="amis">
+          <div class="mi"><div class="mil">Misión</div><div class="mit">"Eliminar la fricción operativa de las empresas mediante sistemas de inteligencia artificial que generan resultados medibles desde el primer mes."</div></div>
+          <div class="mi"><div class="mil">Visión</div><div class="mit">"Ser el socio tecnológico de referencia para empresas que quieren operar con la precisión y eficiencia de las compañías más avanzadas del mundo."</div></div>
+          <div class="mi"><div class="mil">Propósito</div><div class="mit">"Devolver tiempo a los equipos para que puedan enfocarse en lo que realmente importa: crear, crecer y generar valor."</div></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="avals">
+          <div class="vc"><h4 class="vt">Precisión</h4><p class="vd">Cada sistema que construimos está diseñado para funcionar sin errores. No entregamos hasta que cada flujo esté probado en producción real.</p></div>
+          <div class="vc"><h4 class="vt">Transparencia</h4><p class="vd">Nuestros clientes saben exactamente qué estamos construyendo, por qué y cuánto les costará. Sin sorpresas, sin letra pequeña.</p></div>
+          <div class="vc"><h4 class="vt">Resultados</h4><p class="vd">Medimos el éxito de cada proyecto por su impacto en los números del cliente, no por la complejidad técnica de lo construido.</p></div>
+          <div class="vc"><h4 class="vt">Evolución</h4><p class="vd">Los sistemas que entregamos no son estáticos. Evolucionan junto con la empresa, adaptándose a nuevos procesos y tecnologías.</p></div>
+        </div>
+        <div class="ateam">
+          <div class="ti"><div class="tav2">JP</div><div><div class="tname">Jorge Patricio Pérez</div><div class="trole">Fundador & Director · Arquitecto de Sistemas IA</div></div></div>
+          <div class="ti"><div class="tav2">O</div><div><div class="tname">Equipo Optimat</div><div class="trole">Especialistas en automatización, datos e integración de sistemas</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="sw">
+  <div class="in">
+    <div class="sh reveal"><div class="se"><span class="sen">06</span><div class="sel"></div><span class="set">Preguntas Frecuentes</span></div><h2 class="st">Lo que <em>más nos preguntan</em></h2></div>
+    <div class="fl reveal">
+      <div class="fi"><button class="fq" onclick="tF(this)"><span class="fqt">¿Necesito conocimientos técnicos para usar los sistemas que implementan?</span><div class="fic"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="fa">No. Todos los sistemas están diseñados para ser operados sin conocimientos técnicos. Tú y tu equipo interactúan con interfaces simples — nosotros nos encargamos de todo lo que ocurre detrás. Incluimos capacitación completa antes de entregar el proyecto.</div></div>
+      <div class="fi"><button class="fq" onclick="tF(this)"><span class="fqt">¿Cuánto tiempo tarda una implementación típica?</span><div class="fic"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="fa">Depende de la complejidad. Una automatización básica puede estar lista en 1–2 semanas. Proyectos más complejos toman entre 3 y 6 semanas. En el diagnóstico inicial te damos un estimado preciso con fechas de entrega.</div></div>
+      <div class="fi"><button class="fq" onclick="tF(this)"><span class="fqt">¿Qué pasa si el sistema falla o necesito cambios después de la entrega?</span><div class="fic"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="fa">Todos los proyectos incluyen soporte post-entrega. Ofrecemos planes de mantenimiento mensual con monitoreo continuo, corrección de errores y pequeñas mejoras. Si el sistema falla, lo atendemos en menos de 4 horas hábiles.</div></div>
+      <div class="fi"><button class="fq" onclick="tF(this)"><span class="fqt">¿Se integra con las herramientas que ya usamos?</span><div class="fic"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="fa">En la gran mayoría de los casos, sí. Trabajamos con Gmail, Google Workspace, WhatsApp Business, Salesforce, HubSpot, Pipedrive, Notion, Slack, SAP y muchas más. Si tienes un sistema muy específico, lo evaluamos en el diagnóstico inicial.</div></div>
+      <div class="fi"><button class="fq" onclick="tF(this)"><span class="fqt">¿Cuánto cuesta un proyecto típico?</span><div class="fic"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="fa">Los proyectos tienen dos componentes: un pago único de implementación y una mensualidad de mantenimiento opcional. Automatizaciones básicas comienzan desde $300 USD. Proyectos complejos pueden llegar a $2,000–$5,000 USD. En el diagnóstico gratuito recibes una cotización exacta sin compromisos.</div></div>
+      <div class="fi"><button class="fq" onclick="tF(this)"><span class="fqt">¿Mis datos están seguros?</span><div class="fic"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div></button><div class="fa">Sí. Todos los sistemas se construyen sobre plataformas con encriptación de extremo a extremo. No almacenamos datos de tus clientes en nuestros servidores. Firmamos acuerdos de confidencialidad (NDA) en todos los proyectos antes de comenzar.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="sw white">
+  <div class="in">
+    <div class="cg">
+      <div class="reveal">
+        <div class="se"><span class="sen">07</span><div class="sel"></div><span class="set">Contacto</span></div>
+        <h2 class="st">Empieza con<br>un <em>diagnóstico<br>gratuito</em></h2>
+        <p class="sb">Cuéntanos tu operación. Si podemos ayudarte, recibes un análisis detallado en menos de 2 horas hábiles — sin costo, sin compromiso.</p>
+        <div class="cil">
+          <div class="ci2"><div class="cil2">Correo</div><div class="civ"><a href="mailto:operacion@optimat.net">operacion@optimat.net</a></div></div>
+          <div class="ci2"><div class="cil2">Tiempo de respuesta</div><div class="civ">Menos de 2 horas hábiles</div></div>
+          <div class="ci2"><div class="cil2">Ubicación</div><div class="civ">Ciudad de México, México</div></div>
+          <div class="ci2"><div class="cil2">Costo del diagnóstico</div><div class="civ">Sin costo · Sin compromiso · Sin contrato</div></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div id="form-section">
+          <div class="fc">
+            <div class="fh"><h3 class="ftt">Solicitar diagnóstico</h3><p class="fsb">Confidencial · Menos de 2 minutos</p></div>
+            <div class="fg2"><label>Nombre completo</label><input type="text" id="nombre" placeholder="Tu nombre" required></div>
+            <div class="fr2"><div class="fg2"><label>Correo electrónico</label><input type="email" id="email" placeholder="tu@empresa.com" required></div><div class="fg2"><label>WhatsApp</label><input type="tel" id="telefono" placeholder="+52 55 0000 0000"></div></div>
+            <div class="fg2"><label>Empresa</label><input type="text" id="empresa" placeholder="Nombre de tu empresa"></div>
+            <div class="fr2">
+              <div class="fg2"><label>Industria</label><select id="industria"><option value="">Selecciona</option><option>Tecnología / SaaS</option><option>Inmobiliaria</option><option>Salud / Clínicas</option><option>Educación</option><option>Retail / E-commerce</option><option>Servicios Financieros</option><option>Manufactura</option><option>Consultoría</option><option>Otro</option></select></div>
+              <div class="fg2"><label>Tamaño del equipo</label><select id="tamano"><option value="">Selecciona</option><option>Solo / Freelance</option><option>2–10 personas</option><option>11–50 personas</option><option>51–200 personas</option><option>200+ personas</option></select></div>
+            </div>
+            <div class="fg2"><label>Tu mayor reto operativo hoy</label><textarea id="reto" placeholder="Describe el proceso o problema que quieres optimizar..."></textarea></div>
+            <div class="fg2"><label>Inversión mensual en operaciones / marketing</label><select id="presupuesto"><option value="">Selecciona</option><option>Menos de $500 USD</option><option>$500 – $2,000 USD</option><option>$2,000 – $10,000 USD</option><option>Más de $10,000 USD</option></select></div>
+            <div class="sa"><button class="sb2" onclick="submitForm()" id="submit-btn">Solicitar diagnóstico</button><p class="prv">Información protegida.<br>Sin spam, nunca.</p></div>
+          </div>
+        </div>
+        <div class="ss" id="success-section">
+          <div class="fc">
+            <div class="sck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <h3 class="stt">Solicitud<br>recibida.</h3>
+            <p class="sbd">Nuestro sistema está analizando tu perfil ahora mismo.<br><br>Si tu empresa califica, recibirás un diagnóstico personalizado en las próximas 2 horas en tu correo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft">
+    <div>
+      <a href="#inicio" class="logo" style="margin-bottom:16px;display:inline-flex;">
+        <svg class="lm" viewBox="0 0 28 28" fill="none"><rect x="0.4" y="0.4" width="27.2" height="27.2" stroke="#f7f5f0" stroke-width="0.6"/><path d="M14 3.5L22 8.5L22 19.5L14 24.5L6 19.5L6 8.5Z" stroke="#f7f5f0" stroke-width="0.6" fill="none"/><circle cx="14" cy="14" r="1.2" fill="#f7f5f0"/><line x1="14" y1="14" x2="14" y2="7.5" stroke="#f7f5f0" stroke-width="0.6"/><polyline points="11.5,10 14,7.5 16.5,10" stroke="#f7f5f0" stroke-width="0.6" fill="none" stroke-linejoin="round"/></svg>
+        <div style="margin-left:12px;"><span class="ln" style="color:#f7f5f0;">Optimat</span><span class="ls">Intelligence · Growth · Precision</span></div>
+      </a>
+      <p class="ftg">Optimización de procesos digitales con inteligencia artificial. Ciudad de México, México.</p>
+    </div>
+    <div><div class="fct">Servicios</div><ul class="flinks"><li><a href="#servicios">Automatización de Ventas</a></li><li><a href="#servicios">Automatización Administrativa</a></li><li><a href="#servicios">Optimización de Procesos</a></li><li><a href="#servicios">Inteligencia de Datos</a></li></ul></div>
+    <div><div class="fct">Empresa</div><ul class="flinks"><li><a href="#nosotros">Quiénes somos</a></li><li><a href="#nosotros">Misión y visión</a></li><li><a href="#resultados">Resultados</a></li><li><a href="#proceso">Metodología</a></li></ul></div>
+    <div><div class="fct">Contacto</div><ul class="flinks"><li><a href="mailto:operacion@optimat.net">operacion@optimat.net</a></li><li><a href="#contacto">Diagnóstico gratuito</a></li><li><a href="#faq">Preguntas frecuentes</a></li><li><a href="#industrias">Industrias</a></li></ul></div>
+  </div>
+  <div class="fb"><span class="fcp">© 2025 Optimat · Todos los derechos reservados · Ciudad de México, México</span><div class="flg"><a href="#">Privacidad</a><a href="#">Términos de uso</a><a href="#">Aviso legal</a></div></div>
+</footer>
+
+<script>
+const N8N_WEBHOOK_URL="https://hunko13.app.n8n.cloud/webhook/leads";
+const MODO_DEMO=false;
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+function tF(btn){const i=btn.parentElement;const o=i.classList.contains('open');document.querySelectorAll('.fi.open').forEach(x=>x.classList.remove('open'));if(!o)i.classList.add('open');}
+async function submitForm(){
+  const n=document.getElementById('nombre').value.trim();
+  const e=document.getElementById('email').value.trim();
+  const ind=document.getElementById('industria').value;
+  const r=document.getElementById('reto').value.trim();
+  if(!n||!e||!r||!ind){alert('Por favor completa: nombre, email, industria y tu reto principal.');return;}
+  const btn=document.getElementById('submit-btn');
+  btn.textContent='Procesando...';btn.classList.add('loading');
+  const payload={nombre:n,email:e,empresa:document.getElementById('empresa').value.trim(),industria:ind,tamano_equipo:document.getElementById('tamano').value,presupuesto:document.getElementById('presupuesto').value,reto_principal:r,telefono:document.getElementById('telefono').value.trim(),timestamp:new Date().toISOString()};
+  if(MODO_DEMO){await new Promise(r=>setTimeout(r,1500));showSuccess();return;}
+  try{await fetch(N8N_WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});}catch(err){console.error(err);}finally{showSuccess();}
+}
+function showSuccess(){document.getElementById('form-section').style.display='none';document.getElementById('success-section').classList.add('visible');}
+</script>
+</body>
+</html>
